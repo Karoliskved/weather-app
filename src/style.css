@@ -1,0 +1,26 @@
+.infoCont {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+
+  justify-self: center;
+  align-self: center;
+  width: 50%;
+  height: auto;
+}
+.infoCont > div {
+  align-self: stretch;
+  justify-self: stretch;
+  height: 25px;
+  border: 1px solid black;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
