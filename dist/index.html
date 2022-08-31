@@ -8,39 +8,48 @@
     <script src="style.bundle.js"></script>
   </head>
   <body>
-    <div>
+    <div class="header">weather-app</div>
+    <div class="main">
+      <div class="searchContainer">
       <input type="text" id="search" />
-      <button id="newGif">new</button>
-      <br />
-      <label for="system">use imperial system</label>
-      <input type="checkbox" id="system" />
-    </div>
-    <div id="loading"></div>
-    <div id="weatherInfo" hidden>
-      
-       <div  class="card">
-         <div>temperature</div>
-          <div id="temperature"></div>
-       </div>
-      <div class="card">
-        <div>humidity</div>
-        <div id="humidity"></div>
+      <button id="newGif">search</button>
+
+      <div class="systemToggle">
+        <label for="system">use imperial system</label>
+        <input type="checkbox" id="system" />
       </div>
-      <div class="card">
-        <div>weather</div>
-        <div id="weather"></div>
-        <img id="weatherIcon">
-      </div>
-      <div class="infoCont">
-          <div>feelsLike</div>
-          <div id="feelsLike"></div>
+     </div>
+    
+      <div id="loading"></div>
+      <div id="weatherInfo" hidden>
+  
+         <div class="cardContainer">
+          <div id="selectedLocation"></div>
+           <div  class="card">
+             <div>Temperature: </div>
+              <div id="temperature"></div>
+           </div>
+                   <div class="card">
+            <div>Humidity: </div>
+            <div id="humidity"></div>
+                   </div>
+                   <div class="card">
+            <div>Weather: </div>
+            <div id="weather"></div>
+            <img id="weatherIcon">
+                   </div>
+         </div>
+        <div class="infoCont">
+            <div>Feels like</div>
+            <div id="feelsLike"></div>
       
-          <div>wind</div>
-          <div id="wind"></div>
-          <div>deg</div>
-          <div id="deg"></div>
-          <div>gust</div>
-          <div id="gust"></div>
+            <div>Wind</div>
+            <div id="wind"></div>
+            <div>Deg</div>
+            <div id="deg"></div>
+            <div>Gust</div>
+            <div id="gust"></div>
+          </div>
         </div>
       </div>
     </div>

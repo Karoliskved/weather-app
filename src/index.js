@@ -13,13 +13,20 @@ const check = document.querySelector('#system');
 const body = document.querySelector('body');
 const loading = document.querySelector('#loading');
 const weatherInfo = document.querySelector('#weatherInfo');
+const selectedLocation = document.querySelector('#selectedLocation');
 let system = 'metric';
+let tempSystem = 'C';
+let speedSystem = 'km/h';
 check.addEventListener('change', (e) => {
   if (e.currentTarget.checked) {
     system = 'imperial';
+    tempSystem = 'F';
+    speedSystem = 'mph';
     getInfo();
   } else {
+    tempSystem = 'F';
     system = 'metric';
+    speedSystem = 'km/h';
     getInfo();
   }
 });
@@ -46,19 +53,21 @@ async function getInfo() {
   loading.textContent = '';
   const gifData = await response.json();
   console.log(gifData);
-
+  selectedLocation.textContent = searchValue;
   const relevantData = createObj(gifData);
-  temp.textContent = relevantData.temp;
-  feelsLike.textContent = relevantData.feelsLike;
-  humidity.textContent = relevantData.humidity;
+  temp.textContent = relevantData.temp + String.fromCharCode(176) + tempSystem;
+  feelsLike.textContent =
+    relevantData.feelsLike + String.fromCharCode(176) + tempSystem;
+  humidity.textContent = relevantData.humidity + '%';
   weather.textContent = relevantData.weather;
   weatherIcon.src = relevantData.weatherIcon;
-  wind.textContent = relevantData.wind;
-  deg.textContent = relevantData.deg;
-  gust.textContent = relevantData.gust;
+  wind.textContent = relevantData.wind + speedSystem;
+  deg.textContent = relevantData.deg + String.fromCharCode(176);
+  gust.textContent = relevantData.gust + speedSystem;
 }
 function createObj(data) {
   let obj = {};
+  //get data from object
   if (data.main.temp != undefined) obj.temp = data.main.temp;
   else obj.temp = 'no info';
   if (data.main.feels_like != undefined) obj.feelsLike = data.main.feels_like;
